@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		894E5C90C1EDCC5933D2B77B /* Pods_RealmDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41ADE857EFDCEABA28CA009C /* Pods_RealmDemo.framework */; };
+		AD40A99E2125EAEE00BF5C51 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD40A99D2125EAEE00BF5C51 /* TasksViewController.swift */; };
+		AD40A9A32125EEA900BF5C51 /* TasksPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD40A9A22125EEA900BF5C51 /* TasksPresenter.swift */; };
 		ADF5D3092125E5F900D5FFB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF5D3082125E5F900D5FFB6 /* AppDelegate.swift */; };
-		ADF5D30B2125E5F900D5FFB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF5D30A2125E5F900D5FFB6 /* ViewController.swift */; };
 		ADF5D30E2125E5F900D5FFB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADF5D30C2125E5F900D5FFB6 /* Main.storyboard */; };
 		ADF5D3102125E5F900D5FFB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADF5D30F2125E5F900D5FFB6 /* Assets.xcassets */; };
 		ADF5D3132125E5F900D5FFB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADF5D3112125E5F900D5FFB6 /* LaunchScreen.storyboard */; };
@@ -18,9 +19,10 @@
 /* Begin PBXFileReference section */
 		41ADE857EFDCEABA28CA009C /* Pods_RealmDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealmDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C9D173C92A5A00C90EB984D /* Pods-RealmDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RealmDemo/Pods-RealmDemo.release.xcconfig"; sourceTree = "<group>"; };
+		AD40A99D2125EAEE00BF5C51 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
+		AD40A9A22125EEA900BF5C51 /* TasksPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksPresenter.swift; sourceTree = "<group>"; };
 		ADF5D3052125E5F900D5FFB6 /* RealmDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealmDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADF5D3082125E5F900D5FFB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ADF5D30A2125E5F900D5FFB6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ADF5D30D2125E5F900D5FFB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ADF5D30F2125E5F900D5FFB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADF5D3122125E5F900D5FFB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -48,6 +50,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AD40A99F2125EE5800BF5C51 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				ADF5D30C2125E5F900D5FFB6 /* Main.storyboard */,
+				ADF5D3112125E5F900D5FFB6 /* LaunchScreen.storyboard */,
+				AD40A99D2125EAEE00BF5C51 /* TasksViewController.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		AD40A9A02125EE6C00BF5C51 /* presenter */ = {
+			isa = PBXGroup;
+			children = (
+				AD40A9A22125EEA900BF5C51 /* TasksPresenter.swift */,
+			);
+			path = presenter;
+			sourceTree = "<group>";
+		};
+		AD40A9A12125EE7D00BF5C51 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		ADF5D2FC2125E5F900D5FFB6 = {
 			isa = PBXGroup;
 			children = (
@@ -69,11 +96,11 @@
 		ADF5D3072125E5F900D5FFB6 /* RealmDemo */ = {
 			isa = PBXGroup;
 			children = (
+				AD40A99F2125EE5800BF5C51 /* view */,
+				AD40A9A02125EE6C00BF5C51 /* presenter */,
+				AD40A9A12125EE7D00BF5C51 /* model */,
 				ADF5D3082125E5F900D5FFB6 /* AppDelegate.swift */,
-				ADF5D30A2125E5F900D5FFB6 /* ViewController.swift */,
-				ADF5D30C2125E5F900D5FFB6 /* Main.storyboard */,
 				ADF5D30F2125E5F900D5FFB6 /* Assets.xcassets */,
-				ADF5D3112125E5F900D5FFB6 /* LaunchScreen.storyboard */,
 				ADF5D3142125E5F900D5FFB6 /* Info.plist */,
 			);
 			path = RealmDemo;
@@ -203,8 +230,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADF5D30B2125E5F900D5FFB6 /* ViewController.swift in Sources */,
+				AD40A9A32125EEA900BF5C51 /* TasksPresenter.swift in Sources */,
 				ADF5D3092125E5F900D5FFB6 /* AppDelegate.swift in Sources */,
+				AD40A99E2125EAEE00BF5C51 /* TasksViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
