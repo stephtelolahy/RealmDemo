@@ -38,6 +38,15 @@ class TasksViewController: UITableViewController {
         return cell
     }
     
+    // MARK: - Table view delegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedTask = tasks[indexPath.row]
+        self.performSegue(withIdentifier: "toTags", sender: selectedTask)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     // MARK: IBActions
     
     @IBAction func onAddTaped(_ sender: Any) {
@@ -68,15 +77,16 @@ class TasksViewController: UITableViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        let tagsViewController = segue.destination as? TagsViewController
+        // Pass the selected object to the new view controller.
+        let taskName = sender as? String
+        tagsViewController?.taskName = taskName
+    }
     
 }
 

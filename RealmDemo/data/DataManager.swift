@@ -11,6 +11,8 @@ import RealmSwift
 protocol IDataManager : class {
     func loadTasks() -> [String]
     func addNewTask(name: String) -> Bool
+    func loadTags(assignedTo taskName: String) -> [String]
+    func loadAllTags() -> [String]
 }
 
 class DataManager: IDataManager {
@@ -35,4 +37,13 @@ class DataManager: IDataManager {
         return true
     }
     
+    func loadTags(assignedTo taskName: String) -> [String] {
+        // TODO:
+        return ["Family", "Work"]
+    }
+    
+    func loadAllTags() -> [String] {
+        // TODO:
+        return ["Family", "Work", "Personal", "Friendship"]
+    }
 }
