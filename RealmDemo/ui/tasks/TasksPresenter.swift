@@ -25,8 +25,8 @@ class TasksPresenter {
         view.fill(tasks: tasks)
     }
     
-    func onNewTaskAdded(name: String) {
-        guard dataManager.addNewTask(name: name) else {
+    func onTaskAdded(name: String) {
+        guard dataManager.addTask(name: name) else {
             // TODO: failed adding task
             return
         }

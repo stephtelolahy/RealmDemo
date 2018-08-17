@@ -19,6 +19,8 @@ class TagsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAddTaped))
+        
         presenter = TagsPresenter(view: self, dataManager: DataManager.shared, taskName: taskName)
     }
     
@@ -27,6 +29,21 @@ class TagsViewController: UITableViewController {
         
         presenter?.onViewAppear()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        presenter?.onViewDisappear()
+    }
+    
+    // MARK: IBAction
+    
+    @objc func onAddTaped(_ sender: Any) {
+        presentInputDialog(title: "New tag", textFieldPlaceHolder: "Enter Name", confirmActionTitle: "Add") { name in
+            self.presenter?.onTagAdded(name: name)
+        }
+    }
+    
     
     // MARK: - Table view data source
     
@@ -46,6 +63,9 @@ class TagsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let selectedItem = items[indexPath.row]
+        presenter?.onTagSelected(name: selectedItem.tagName)
     }
 }
 

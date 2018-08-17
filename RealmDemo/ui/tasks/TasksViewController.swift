@@ -41,40 +41,18 @@ class TasksViewController: UITableViewController {
     // MARK: - Table view delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedTask = tasks[indexPath.row]
-        self.performSegue(withIdentifier: "toTags", sender: selectedTask)
-        
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let selectedTask = tasks[indexPath.row]
+        performSegue(withIdentifier: "toTags", sender: selectedTask)
     }
     
     // MARK: IBActions
     
     @IBAction func onAddTaped(_ sender: Any) {
-        //Creating UIAlertController and
-        //Setting title and message for the alert dialog
-        let alertController = UIAlertController(title: "New task", message: "", preferredStyle: .alert)
-        
-        //adding textfields to our dialog box
-        alertController.addTextField { (textField) in
-            textField.placeholder = "Enter Name"
+        presentInputDialog(title: "New task", textFieldPlaceHolder: "Enter Name", confirmActionTitle: "Add") { name in
+            self.presenter?.onTaskAdded(name: name)
         }
-        
-        //the confirm action taking the input
-        let confirmAction = UIAlertAction(title: "Add", style: .default) { (_) in
-            
-            //getting the input value from user
-            if let name = alertController.textFields?[0].text, !name.isEmpty {
-                self.presenter?.onNewTaskAdded(name: name)
-            }
-        }
-        alertController.addAction(confirmAction)
-        
-        //the cancel action doing nothing
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
-        alertController.addAction(cancelAction)
-        
-        //finally presenting the dialog box
-        self.present(alertController, animated: true, completion: nil)
     }
     
     // MARK: - Navigation
@@ -94,6 +72,6 @@ extension TasksViewController: TasksView {
     
     func fill(tasks: [String]) {
         self.tasks = tasks
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
 }

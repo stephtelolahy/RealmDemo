@@ -15,6 +15,7 @@
 		AD40A9AC2126706000BF5C51 /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD40A9AB2126706000BF5C51 /* TagsViewController.swift */; };
 		AD40A9AE212670B400BF5C51 /* TagsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD40A9AD212670B400BF5C51 /* TagsPresenter.swift */; };
 		AD40A9B0212670ED00BF5C51 /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD40A9AF212670ED00BF5C51 /* Tags.swift */; };
+		AD40A9B321267A0100BF5C51 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD40A9B221267A0100BF5C51 /* UIViewControllerExtension.swift */; };
 		ADF5D3092125E5F900D5FFB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF5D3082125E5F900D5FFB6 /* AppDelegate.swift */; };
 		ADF5D30E2125E5F900D5FFB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADF5D30C2125E5F900D5FFB6 /* Main.storyboard */; };
 		ADF5D3102125E5F900D5FFB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADF5D30F2125E5F900D5FFB6 /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 		AD40A9AB2126706000BF5C51 /* TagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
 		AD40A9AD212670B400BF5C51 /* TagsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsPresenter.swift; sourceTree = "<group>"; };
 		AD40A9AF212670ED00BF5C51 /* Tags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
+		AD40A9B221267A0100BF5C51 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		ADF5D3052125E5F900D5FFB6 /* RealmDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealmDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADF5D3082125E5F900D5FFB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADF5D30D2125E5F900D5FFB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -97,6 +99,14 @@
 			path = tags;
 			sourceTree = "<group>";
 		};
+		AD40A9B1212679E500BF5C51 /* misc */ = {
+			isa = PBXGroup;
+			children = (
+				AD40A9B221267A0100BF5C51 /* UIViewControllerExtension.swift */,
+			);
+			path = misc;
+			sourceTree = "<group>";
+		};
 		ADF5D2FC2125E5F900D5FFB6 = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +130,7 @@
 			children = (
 				AD40A9A82126700700BF5C51 /* ui */,
 				AD40A9A12125EE7D00BF5C51 /* data */,
+				AD40A9B1212679E500BF5C51 /* misc */,
 				ADF5D3082125E5F900D5FFB6 /* AppDelegate.swift */,
 				ADF5D30C2125E5F900D5FFB6 /* Main.storyboard */,
 				ADF5D3112125E5F900D5FFB6 /* LaunchScreen.storyboard */,
@@ -255,6 +266,7 @@
 			files = (
 				AD40A9A52125F2F200BF5C51 /* Task.swift in Sources */,
 				AD40A9AE212670B400BF5C51 /* TagsPresenter.swift in Sources */,
+				AD40A9B321267A0100BF5C51 /* UIViewControllerExtension.swift in Sources */,
 				AD40A9A72125F3A000BF5C51 /* DataManager.swift in Sources */,
 				AD40A9A32125EEA900BF5C51 /* TasksPresenter.swift in Sources */,
 				AD40A9B0212670ED00BF5C51 /* Tags.swift in Sources */,
