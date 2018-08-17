@@ -6,27 +6,32 @@
 //  Copyright © 2018 Hugues Stéphano TELOLAHY. All rights reserved.
 //
 
-protocol TasksView: AnyObject {
+protocol TasksView: class {
     func fill(tasks: [String])
 }
 
 class TasksPresenter {
     
-    private weak var view: TasksView?
+    private unowned let view: TasksView
+    private unowned let dataManager: IDataManager
     
-    private var tasks: [String] = []
-    
-    init(view: TasksView) {
-       self.view = view
+    init(view: TasksView, dataManager: IDataManager) {
+        self.view = view
+        self.dataManager = dataManager
     }
     
     func onViewAppear() {
-       view?.fill(tasks: tasks)
+        let tasks = dataManager.loadTasks()
+        view.fill(tasks: tasks)
     }
     
     func onNewTaskAdded(name: String) {
-        tasks.append(name)
-        view?.fill(tasks: tasks)
+        guard dataManager.addNewTask(name: name) else {
+            // TODO: failed adding task
+            return
+        }
+        
+        let tasks = dataManager.loadTasks()
+        view.fill(tasks: tasks)
     }
-    
 }

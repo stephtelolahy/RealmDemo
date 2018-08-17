@@ -33,7 +33,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="TODO" id="lpP-Vp-HYK">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Xxe-aa-fQt">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Xxe-aa-fQt">
                             <connections>
                                 <action selector="onAddTaped:" destination="3h6-YA-A18" id="Ktb-Ch-SdA"/>
                             </connections>
