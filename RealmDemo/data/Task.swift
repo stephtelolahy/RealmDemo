@@ -11,4 +11,5 @@ import RealmSwift
 class Task: Object {
     @objc dynamic var name = ""
     @objc dynamic var creationDate = Date(timeIntervalSince1970: 1)
+    let associatedTags = LinkingObjects(fromType: Tag.self, property: "members")
 }

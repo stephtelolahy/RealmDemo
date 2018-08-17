@@ -10,4 +10,5 @@ import RealmSwift
 
 class Tag: Object {
     @objc dynamic var name = ""
+    let members = List<Task>()
 }

@@ -60,7 +60,7 @@ class TagsPresenter {
     
     func onViewDisappear() {
         let assignedTags = items.filter { $0.selected }.map { $0.tagName }
-        dataManager.associate(taskName: taskName, withTags: assignedTags)
+        dataManager.assign(taskName: taskName, tags: assignedTags)
     }
 }
 

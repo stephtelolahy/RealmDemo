@@ -6,6 +6,7 @@
 //  Copyright © 2018 Hugues Stéphano TELOLAHY. All rights reserved.
 //
 
+// https://realm.io/docs/swift/latest/
 import RealmSwift
 
 protocol IDataManager : class {
@@ -14,7 +15,7 @@ protocol IDataManager : class {
     func loadTags(assignedTo taskName: String) -> [String]
     func loadAllTags() -> [String]
     func addTag(name: String) -> Bool
-    func associate(taskName: String, withTags tagNames: [String])
+    func assign(taskName: String, tags assignedTags: [String])
 }
 
 class DataManager: IDataManager {
@@ -36,11 +37,6 @@ class DataManager: IDataManager {
         return true
     }
     
-    func loadTags(assignedTo taskName: String) -> [String] {
-        // TODO:
-        return ["Family", "Work"]
-    }
-    
     func loadAllTags() -> [String] {
         return Array(realm.objects(Tag.self).map { $0.name })
     }
@@ -54,7 +50,42 @@ class DataManager: IDataManager {
         return true
     }
     
-    func associate(taskName: String, withTags tagNames: [String]){
-        // TODO:
+    func assign(taskName: String, tags assignedTags: [String]) {
+        guard let task = realm.objects(Task.self).filter(" name = '\(taskName)'").first else {
+            return
+        }
+        let tags = realm.objects(Tag.self)
+        for tag in tags {
+            if assignedTags.contains(tag.name) {
+                add(task: task, tag: tag)
+            } else {
+                remove(task: task, tag: tag)
+            }
+        }
+    }
+    
+    private func add(task: Task, tag: Tag) {
+        guard !tag.members.contains(where: { $0.name == task.name }) else {
+            return
+        }
+        try! realm.write {
+            tag.members.append(task)
+        }
+    }
+    
+    private func remove(task: Task, tag: Tag) {
+        guard  let index = tag.members.index(where: { $0.name == task.name }) else {
+            return
+        }
+        try! realm.write {
+            tag.members.remove(at: index)
+        }
+    }
+    
+    func loadTags(assignedTo taskName: String) -> [String] {
+        guard let task = realm.objects(Task.self).filter(" name = '\(taskName)'").first else {
+            return []
+        }
+        return Array(task.associatedTags).map { $0.name }
     }
 }
