@@ -8,6 +8,6 @@
 
 import RealmSwift
 
-class Tags: Object {
+class Tag: Object {
     @objc dynamic var name = ""
 }

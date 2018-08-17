@@ -21,7 +21,7 @@ class TasksPresenter {
     }
     
     func onViewAppear() {
-        let tasks = dataManager.loadTasks()
+        let tasks = dataManager.loadAllTasks()
         view.fill(tasks: tasks)
     }
     
@@ -31,7 +31,7 @@ class TasksPresenter {
             return
         }
         
-        let tasks = dataManager.loadTasks()
+        let tasks = dataManager.loadAllTasks()
         view.fill(tasks: tasks)
     }
 }

@@ -9,7 +9,7 @@
 import RealmSwift
 
 protocol IDataManager : class {
-    func loadTasks() -> [String]
+    func loadAllTasks() -> [String]
     func addTask(name: String) -> Bool
     func loadTags(assignedTo taskName: String) -> [String]
     func loadAllTags() -> [String]
@@ -23,19 +23,16 @@ class DataManager: IDataManager {
     
     let realm = try! Realm()
     
-    func loadTasks() -> [String] {
-        let taskNames  = realm.objects(Task.self).map { $0.name }
-        return Array(taskNames)
+    func loadAllTasks() -> [String] {
+        return Array(realm.objects(Task.self).map { $0.name })
     }
     
     func addTask(name: String) -> Bool {
         let task = Task()
         task.name = name
-        
         try! realm.write {
             realm.add(task)
         }
-        
         return true
     }
     
@@ -45,12 +42,15 @@ class DataManager: IDataManager {
     }
     
     func loadAllTags() -> [String] {
-        // TODO:
-        return ["Family", "Work", "Personal", "Friendship"]
+        return Array(realm.objects(Tag.self).map { $0.name })
     }
     
     func addTag(name: String) -> Bool {
-        // TODO:
+        let tag = Tag()
+        tag.name = name
+        try! realm.write {
+            realm.add(tag)
+        }
         return true
     }
     
